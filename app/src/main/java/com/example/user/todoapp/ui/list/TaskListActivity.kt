@@ -18,7 +18,6 @@ import com.example.user.todoapp.ui.detail.TaskDetailsActivity
 import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.task_item.*
 
 
 class TaskListActivity : AppCompatActivity(),
@@ -100,11 +99,11 @@ class TaskListActivity : AppCompatActivity(),
     }
 
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View, position: Int) {
-        val task = mAdapter.getItem(position)!!
         when (view.id) {
             R.id.task_is_executed -> {
                 mRealm.executeTransaction {
-                    task.isExecuted = task_is_executed.isChecked
+                    val task = mAdapter.getItem(position)!!
+                    task.isExecuted = !task.isExecuted!!
                     it.insertOrUpdate(task)
                 }
             }

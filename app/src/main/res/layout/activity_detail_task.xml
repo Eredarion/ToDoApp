@@ -1,69 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:fadeScrollbars="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".ui.detail.TaskDetailsActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/task_title"
-        style="@style/textTask"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:textColor="@color/text_main"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Task title" />
-
-    <TextView
-        android:id="@+id/task_description"
-        style="@style/textTask"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/text_description"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task_title"
-        tools:text="description" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/done"
-        android:textColor="@color/text_description"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/task_is_executed"
-        app:layout_constraintEnd_toStartOf="@id/task_is_executed"
-        app:layout_constraintTop_toBottomOf="@id/task_description" />
+        android:padding="10dp"
+        tools:context=".ui.detail.TaskDetailsActivity">
 
-    <TextView
-        android:id="@+id/task_create_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/task_is_executed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task_description"
-        tools:text="12.12.1233"
-        android:layout_marginLeft="15dp" />
+        <TextView
+            android:id="@+id/task_title"
+            style="@style/textTask"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textColor="@color/text_main"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Task title" />
 
-    <CheckBox
-        android:id="@+id/task_is_executed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:clickable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task_description"
-        android:layout_marginRight="20dp" />
+        <TextView
+            android:id="@+id/task_description"
+            style="@style/textTask"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_description"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_title"
+            tools:text="description" />
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text=". Status -"
+            android:textColor="@color/text_description"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/task_is_executed"
+            app:layout_constraintEnd_toStartOf="@id/task_is_executed"
+            app:layout_constraintTop_toBottomOf="@id/task_description" />
+
+        <TextView
+            android:id="@+id/text_create_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Create date: "
+            android:textColor="@color/text_description"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/task_is_executed"
+            app:layout_constraintEnd_toStartOf="@id/task_create_date"
+            app:layout_constraintTop_toBottomOf="@id/task_description" />
+
+        <TextView
+            android:id="@+id/task_create_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintBaseline_toBaselineOf="@id/task_is_executed"
+            app:layout_constraintEnd_toStartOf="@id/text_status"
+            app:layout_constraintTop_toBottomOf="@id/task_description"
+            tools:text="12.12.1233" />
+
+        <CheckBox
+            android:id="@+id/task_is_executed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_description" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
